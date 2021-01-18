@@ -1,14 +1,62 @@
 :root {
-  --color-background: #E8F0F6;
+  --color-background: #f8f9fe;
   --color-primary: #1663C7;
+  --color-text-description: #9A9DB3;
+  --color-label-input: #01142e;
+  --color-border-input: #e8edf1;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
   background: var(--color-background);
+}
+
+.jumbotronContainer {
+  background-color: var(--color-background);
+}
+
+.containerForm {
+  border: 0.5px solid var(--color-border-input);
+}
+
+.titleForm {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.descriptionForm {
+  font-size: 20px;
+  color: var(--color-text-description);
+}
+
+.labelInput {
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+
+  color: var(--color-label-input);
+}
+
+.inputForm {
+  background-color: var(--color-background);
+  border: 0.5px solid var(--color-border-input);
+  height: calc(1.5em + 1rem + 2px)
+}
+
+.buttonContainer {
+  width: 100%;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  padding: 12px 0;
 }

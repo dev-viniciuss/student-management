@@ -6,6 +6,7 @@ import Header from '../../components/Header';
 import { Jumbotron } from 'react-bootstrap';
 
 const Home: React.FC = () => {
+
   return(
     <>
       <Header />
