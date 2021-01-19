@@ -18,6 +18,17 @@ body {
   background: var(--color-background);
 }
 
+/* Retirar os botões do input do tipo number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
 .jumbotronContainer {
   background-color: var(--color-background);
 }
