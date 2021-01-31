@@ -2,7 +2,11 @@ import React from 'react';
 
 import Header from '../../components/Header';
 
-import { Container, Jumbotron, Card, Table, Button } from 'react-bootstrap';
+import { FiEdit, FiTrash, FiInfo } from 'react-icons/fi';
+
+import { Container, Jumbotron, Table, Button, Card } from 'react-bootstrap';
+
+import studentInformation from './fakeData';
 
 const ShowStudent: React.FC = () => {
   return(
@@ -10,38 +14,43 @@ const ShowStudent: React.FC = () => {
       <Header />
       <Container fluid>
         <Jumbotron className="jumbotronContainer">
-          <h2 className="titleForm">Cadastre um curso</h2>
-          <p className="descriptionForm">Cadastre um curso no sistema preenchendo todos os campos requisitados</p>
-          <Table className="containerTable" hover responsive>
+          <h2 className="titleForm">Pesquise pelos estudantes cadastrados</h2>
+          <p className="descriptionForm">Aqui você tem acesso a todos os estudantes cadastrados na plataforma</p>
+          <Table className="stylesTable" hover responsive>
             <thead>
               <tr>
-                <th>#</th>
-                {Array.from({ length: 12 }).map((_, index) => (
-                  <th key={index}>Table heading</th>
-                ))}
+                <th>Código do aluno</th>
+                <th>Nome do aluno</th>
+                <th>Cpf do aluno</th>
+                <th>Curso matriculado</th>
+                <th>Editar aluno</th>
+                <th>Deletar aluno</th>
+                <th>Mais informações</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                {Array.from({ length: 12 }).map((_, index) => (
-                  <td key={index}>Table cell {index}</td>
-                ))}
-              </tr>
-              <tr>
-                <td>2</td>
-                {Array.from({ length: 12 }).map((_, index) => (
-                  <td key={index}>Table cell {index}</td>
-                ))}
-              </tr>
-              <tr>
-                <td>3</td>
-                {Array.from({ length: 12 }).map((_, index) => (
-                  <td key={index}>Table cell {index}</td>
-                ))}
-              </tr>
-            </tbody>
+
+            {studentInformation.map( (item, index) => (
+              <tbody key={index}>
+                <tr>
+                  <td>{item.codigoAluno}</td>
+                  <td>{item.nomeAluno}</td>
+                  <td>{item.cpfAluno}</td>
+                  <td>{item.cursoAluno}</td>
+                  <td><Button variant="primary"><FiEdit /></Button></td>
+                  <td><Button variant="danger"><FiTrash /></Button></td>
+                  <td><Button variant="primary"><FiInfo /></Button></td>
+                </tr>                    
+              </tbody>
+            ))}
           </Table>
+
+          <Card>
+            <Card.Body>
+              <div className="buttonContainer">
+                <Button variant="success">Exportar lista de cursos para o Excel</Button>
+              </div>
+            </Card.Body>
+          </Card>
         </Jumbotron>
       </Container>
     </>
